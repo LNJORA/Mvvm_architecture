@@ -10,9 +10,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mvvm_lq.ui.theme.screens.home.Homescreen
 import com.example.mvvm_lq.ui.theme.screens.login.loginscreen
 import com.example.mvvm_lq.ui.theme.screens.register.Registerscreen
+import com.example.mvvm_lq.ui.theme.screens.splash.SplashScreen
 
 @Composable
-fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= rememberNavController(),startDestination:String= ROUT_LOGIN) {
+fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= rememberNavController(),startDestination:String= ROUT_SPLASH) {
     NavHost(navController = navController, modifier = modifier,startDestination = startDestination){
         composable(ROUT_HOME){
             Homescreen(navController)
@@ -22,6 +23,9 @@ fun AppNavHost(modifier: Modifier=Modifier,navController:NavHostController= reme
         }
         composable(ROUT_REGISTER){
             Registerscreen(navController)
+        }
+        composable(ROUT_SPLASH){
+            SplashScreen(navController)
         }
 
     }
