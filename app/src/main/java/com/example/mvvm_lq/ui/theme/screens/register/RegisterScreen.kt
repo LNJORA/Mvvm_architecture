@@ -44,6 +44,7 @@ import com.example.mvvm_lq.ui.theme.Mvvm_lqTheme
 fun Registerscreen(navController: NavHostController) {
     var fullname by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
+    var confirmpass by remember{ mutableStateOf(TextFieldValue(""))}
     var email by remember { mutableStateOf(TextFieldValue("")) }
     Column(
         modifier = Modifier
@@ -52,7 +53,7 @@ fun Registerscreen(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Login Here",
+            text = "Register Here",
             color = Color.Magenta,
             fontFamily = FontFamily.Serif,
             fontSize = 18.sp
@@ -90,6 +91,17 @@ fun Registerscreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        OutlinedTextField(
+            value = confirmpass, onValueChange = { confirmpass = it },
+            label = { Text(text = "Confirm Password") },
+            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
         Button(
             onClick = { navController.navigate(ROUT_LOGIN) },
             colors = ButtonDefaults.buttonColors(Color.Blue),
@@ -106,14 +118,14 @@ fun Registerscreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
-            onClick = { navController.navigate(ROUT_REGISTER) },
+            onClick = { navController.navigate(ROUT_LOGIN) },
             colors = ButtonDefaults.buttonColors(Color.Blue),
             shape = RoundedCornerShape(11.dp),
             modifier = Modifier.fillMaxWidth()
 
         ) {
             Text(
-                text = "No Account? Register HERE.",
+                text = "Already have an Account? LOGIN HERE.",
                 fontSize = 22.sp
             )
 
